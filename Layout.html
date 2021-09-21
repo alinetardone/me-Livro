@@ -2,14 +2,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/pagina-inicial.css" />
-    <link rel="stylesheet" href="~/css/login-cadastro.css" />
-    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/login-cadastro.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/pagina-inicial.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/site.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@200;300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -75,7 +72,6 @@
     </header>
     <div>
         <main role="main">
-            @RenderBody()
         </main>
     </div>
 
@@ -132,11 +128,10 @@
             
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/jquery.js"></script>
+    <!-- <script src="~/lib/jquery/dist/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="~/js/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+    <script src="~/js/site.js" asp-append-version="true"></script> -->
 </body>
 </html>
