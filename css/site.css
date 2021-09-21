@@ -1,0 +1,45 @@
+﻿header {
+    background-color: #5CE1E6;
+    font-family: 'KoHo', sans-serif;
+}
+
+.img-logo {
+    max-width: 75%;
+    /*height: 30%;*/
+    margin: 1rem 0rem 0rem 2.5rem;
+}
+
+.pesquisar {
+}
+
+.input-pesquisar {
+    width: 75%;
+    height: 30px;
+    margin: 3rem 0rem 0rem -1rem;
+    border-radius: 7px;
+    border: 0px solid gray;
+    padding: 10px 10px 12px 10px;
+}
+
+
+.btn-pesquisar {
+    margin: 3rem 0rem 0rem -1rem;
+}
+
+.login {
+    margin: 3.5rem 0rem 0rem 0rem;
+}
+
+.carrinho {
+    margin: 2.5rem 0rem 0rem 0rem;
+}
+
+.lista-categorias {
+    /*justify-content: center;*/
+}
+
+.navbar-nav > li {
+    padding-left: 2rem;
+    padding-right: 3rem;
+}
+

@@ -1,0 +1,9 @@
+﻿.login-tela {
+    margin: 2rem auto;
+    padding: 2rem;
+    justify-content: center;
+}
+
+.input-login {
+    width: 100%;
+}

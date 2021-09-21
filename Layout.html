@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/pagina-inicial.css" />
+    <link rel="stylesheet" href="~/css/login-cadastro.css" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="row">
+            <div class="col-2">
+                
+                <img class="img-fluid img-logo" src="~/Imagens/LogoMeLivro.png" />
+            </div>
+
+            <div class="col-5">
+                <div class="pesquisar input-group">
+                    <input class="input-pesquisar" placeholder="Pesquisar na Dogma" name="filtro"/>
+                    <div class="input-group-append btn-pesquisar">
+                        <button style="display:flex" type="submit" class="btn btn-warning" onclick="efetuaFiltroProduto()"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2 login">
+                <a asp-controller="" asp-action="Index"  asp-route-Id_Client="@ViewBag.Id_Client">
+                    <img src="~/Imagens/login.png">
+                </a>
+                <a asp-controller="" asp-action="Index">Entrar</a>
+            </div>
+
+            <div class="col-2 carrinho">
+                <a asp-controller="" asp-action="Index"  asp-route-Id_Client="@ViewBag.Id_Client">
+                    <img src="~/Imagens/carrinho.png">
+                </a>
+            </div>
+        </div>
+
+        <div class="row  lista-categorias">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm ">
+                <div class="container ">
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" asp-area="" asp-controller="Produto" asp-action="Acessorios">Todos</a>
+                                <ul class="dropdown-menu menu" role="menu" arial-labelledby="menu1">
+                                    <li role="presentation"><a class="dropdown-item menu" role="menuitem" tabindex="-1" asp-controller="Produto" asp-action="ListaRoupas" asp-route-Id_Cliente="@ViewBag.Id_Client">Roupas</a></li>
+                                    <li role="presentation"><a class="dropdown-item menu" role="menuitem" tabindex="-1" asp-controller="Produto" asp-action="ListaColeiras" asp-route-Id_Cliente="@ViewBag.Id_Client">Coleiras</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Sobre" asp-action="AbreSobre" asp-route-Id_Client="@ViewBag.Id_Client">Trocar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Produto" asp-action="ListarProdutos" asp-route-Id_Client="@ViewBag.Id_Client">Comprar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="ListaVendas" asp-route-Id_Client="@ViewBag.Id_Client">Vender</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <div class="row font-weight-bolder">
+                <div class="col-4">
+                    <img class="footer-img" src="~/Imagens/LogoMeLivro.png" />
+                </div>
+                <div class="col-4">
+                    Livros
+                </div>
+                <div class="col-4">
+                    Se cadastre no nosso site:
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+            </div>
+                <div class="col-4">
+                    <input placeholder="Email" type="email" class="form-control footer-input" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    Fone: (11) 1234-5678
+
+                </div>
+                <div class="col-4">
+                    <input placeholder="Nome" type="text" class="form-control footer-input" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    Email: MeLivro@gmail.com
+
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-light form-control footer-input">Se inscrever</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    Endereço: Estr. dos Alvarengas, 4001
+                </div>
+            <div class="row">
+                <div class="col-4">
+
+                </div>
+                <div class="col-4">
+
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
