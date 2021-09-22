@@ -1,137 +1,167 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/login-cadastro.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/pagina-inicial.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/site.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" media="screen" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-    <header>
-        <div class="row">
-            <div class="col-2">
-                
-                <img class="img-fluid img-logo" src="~/Imagens/LogoMeLivro.png" />
-            </div>
-
-            <div class="col-5">
-                <div class="pesquisar input-group">
-                    <input class="input-pesquisar" placeholder="Pesquisar na Dogma" name="filtro"/>
-                    <div class="input-group-append btn-pesquisar">
-                        <button style="display:flex" type="submit" class="btn btn-warning" onclick="efetuaFiltroProduto()"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </div>
-
-                </div>
-
-
-            </div>
-            <div class="col-1"></div>
-            <div class="col-2 login">
-                <a asp-controller="" asp-action="Index"  asp-route-Id_Client="@ViewBag.Id_Client">
-                    <img src="~/Imagens/login.png">
-                </a>
-                <a asp-controller="" asp-action="Index">Entrar</a>
-            </div>
-
-            <div class="col-2 carrinho">
-                <a asp-controller="" asp-action="Index"  asp-route-Id_Client="@ViewBag.Id_Client">
-                    <img src="~/Imagens/carrinho.png">
-                </a>
-            </div>
-        </div>
-
-        <div class="row  lista-categorias">
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm ">
-                <div class="container ">
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" asp-area="" asp-controller="Produto" asp-action="Acessorios">Todos</a>
-                                <ul class="dropdown-menu menu" role="menu" arial-labelledby="menu1">
-                                    <li role="presentation"><a class="dropdown-item menu" role="menuitem" tabindex="-1" asp-controller="Produto" asp-action="ListaRoupas" asp-route-Id_Cliente="@ViewBag.Id_Client">Roupas</a></li>
-                                    <li role="presentation"><a class="dropdown-item menu" role="menuitem" tabindex="-1" asp-controller="Produto" asp-action="ListaColeiras" asp-route-Id_Cliente="@ViewBag.Id_Client">Coleiras</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Sobre" asp-action="AbreSobre" asp-route-Id_Client="@ViewBag.Id_Client">Trocar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Produto" asp-action="ListarProdutos" asp-route-Id_Client="@ViewBag.Id_Client">Comprar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="ListaVendas" asp-route-Id_Client="@ViewBag.Id_Client">Vender</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-
-    </header>
-    <div>
-        <main role="main">
-        </main>
+    <div id="mySidebar" class="sidebar navbar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
     </div>
+    <nav class="navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand"><button class="openbtn" onclick="openNav()">☰ Me Livro</button></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Todos<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Terror</a></li>
+                        <li><a href="#">Aventura</a></li>
+                        <li><a href="#">Ficção</a></li>
+                        <li><a href="#">Auto ajuda</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="#">Trocar</a></li>
+                <li><a href="#">Comprar</a></li>
+                <li><a href="#">Vender</a></li>
 
-    <footer class="footer">
-        <div>
-            <div class="row font-weight-bolder">
-                <div class="col-4">
-                    <img class="footer-img" src="~/Imagens/LogoMeLivro.png" />
-                </div>
-                <div class="col-4">
-                    Livros
-                </div>
-                <div class="col-4">
-                    Se cadastre no nosso site:
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-            </div>
-                <div class="col-4">
-                    <input placeholder="Email" type="email" class="form-control footer-input" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    Fone: (11) 1234-5678
-
-                </div>
-                <div class="col-4">
-                    <input placeholder="Nome" type="text" class="form-control footer-input" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    Email: MeLivro@gmail.com
-
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-light form-control footer-input">Se inscrever</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    Endereço: Estr. dos Alvarengas, 4001
-                </div>
-            <div class="row">
-                <div class="col-4">
-
-                </div>
-                <div class="col-4">
-
-                </div>
-            </div>
-            
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
         </div>
-    </footer>
-    <!-- <script src="~/lib/jquery/dist/jquery.min.js"></script> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <script src="~/js/jquery.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script> -->
+    </nav>
+
+    <div class="container">
+        <h4>Mais acessados</h4>
+        <div class="row text-center"><hr>
+            <div class="col-sm-4">
+              <div class="thumbnail">
+                <img src="./img/reriPoti.jpg" alt="Paris" width="400" height="300">
+                <p><strong>Harry Potter e o Cálice Cálice Cálice</strong></p>
+                <p>Edição especial</p>
+                <button class="btn" data-toggle="modal" data-target="#myModal">Comprar agora</button>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="thumbnail">
+                <img src="./img/felipeNeto.jpg" alt="New York" width="400" height="300">
+                <p><strong>Felipe Neto - A Vida Por Trás das Câmeras</strong></p>
+                <p>Depreciado</p>
+                <button class="btn" data-toggle="modal" data-target="#myModal">Comprar agora</button>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="thumbnail">
+                <img src="./img/it.jpg" alt="San Francisco" width="400" height="300">
+                <p><strong>It - A Coisa</strong></p>
+                <p>Sim, tem um livro</p>
+                <button class="btn" data-toggle="modal" data-target="#myModal">Comprar agora</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <style>
+        .nav{
+            background-color: #337ab7;
+        }
+        a {
+            color: aliceblue;
+        }
+
+        ul {
+            color: aliceblue;
+        }
+        img {
+
+            height: 200px;
+        }
+    </style>
+    <style>
+        body {
+          font-family: "Lato", sans-serif;
+        }
+        
+        .sidebar {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-image: linear-gradient(180deg, #337ab7, rgb(91, 209, 245));
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+        }
+        
+        .sidebar a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: aliceblue;
+          display: block;
+          transition: 0.3s;
+        }
+        
+        .sidebar a:hover {
+          color: #f1f1f1;
+        }
+        
+        .sidebar .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+        }
+        
+        .openbtn {
+          font-size: 20px;
+          cursor: pointer;
+          background-color: #337ab7;
+          color: aliceblue;
+          border: none;
+        }
+        
+        .openbtn:hover {
+          background-color: #444;
+        }
+        
+        #main {
+          transition: margin-left .5s;
+          padding: 16px;
+        }
+        
+        @media screen and (max-height: 450px) {
+          .sidebar {padding-top: 15px;}
+          .sidebar a {font-size: 18px;}
+        }
+        </style>
 </body>
+<script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+    </script>
 </html>
