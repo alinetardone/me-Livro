@@ -47,38 +47,48 @@
 
     <div class="container">
         <h4>Mais acessados</h4>
-        <div class="row text-center"><hr>
+
+        <div class="card-group text-center">
+            <hr>
             <div class="col-sm-4">
-              <div class="thumbnail">
-                <img src="./img/reriPoti.jpg" alt="Paris" width="400" height="300">
-                <p><strong>Harry Potter e o Cálice Cálice Cálice</strong></p>
-                <p>Edição especial</p>
-                <button class="btn" data-toggle="modal" data-target="#myModal">Comprar agora</button>
-              </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/reriPoti.jpg" alt="Reri Poti">
+                    <div class="card-body">
+                        <p class="card-text"><strong>Harry Potter e o Cálice</strong></p>
+                        <p class="card-text">Edição especial</p>
+                        <button class="btn" data-toggle="modal" data-target="#myModal">Comprar agora</button>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-4">
-              <div class="thumbnail">
-                <img src="./img/felipeNeto.jpg" alt="New York" width="400" height="300">
-                <p><strong>Felipe Neto - A Vida Por Trás das Câmeras</strong></p>
-                <p>Depreciado</p>
-                <button class="btn" data-toggle="modal" data-target="#myModal">Comprar agora</button>
-              </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="text-center"><img class="card-img-top" src="./img/felipeNeto.jpg" alt="Reri Poti"></div>
+                   
+                    <div class="card-body">
+                        <p class="card-text"><strong>Felipe Neto</strong></p>
+                        <p class="card-text">Depreciado</p>
+                        <button class="btn" data-toggle="modal" data-target="#myModal">Comprar agora</button>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-4">
-              <div class="thumbnail">
-                <img src="./img/it.jpg" alt="San Francisco" width="400" height="300">
-                <p><strong>It - A Coisa</strong></p>
-                <p>Sim, tem um livro</p>
-                <button class="btn" data-toggle="modal" data-target="#myModal">Comprar agora</button>
-              </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/it.jpg" alt="Reri Poti">
+                    <div class="card-body">
+                        <p class="card-text"><strong>It - A Coisa</strong></p>
+                        <p class="card-text">Usado</p>
+                        <button class="btn" data-toggle="modal" data-target="#myModal">Comprar agora</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
     </div>
+    <!-- </div> -->
     <style>
-        .nav{
+        .nav {
             background-color: #337ab7;
         }
+
         a {
             color: aliceblue;
         }
@@ -86,82 +96,116 @@
         ul {
             color: aliceblue;
         }
+
         img {
 
-            height: 200px;
+            height: 300px;
+            width: fit-content;
+
         }
     </style>
     <style>
         body {
-          font-family: "Lato", sans-serif;
+            font-family: "Lato", sans-serif;
         }
-        
+
         .sidebar {
-          height: 100%;
-          width: 0;
-          position: fixed;
-          z-index: 1;
-          top: 0;
-          left: 0;
-          background-image: linear-gradient(180deg, #337ab7, rgb(91, 209, 245));
-          overflow-x: hidden;
-          transition: 0.5s;
-          padding-top: 60px;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(180deg, #337ab7, rgb(91, 209, 245));
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
         }
-        
+
         .sidebar a {
-          padding: 8px 8px 8px 32px;
-          text-decoration: none;
-          font-size: 25px;
-          color: aliceblue;
-          display: block;
-          transition: 0.3s;
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: aliceblue;
+            display: block;
+            transition: 0.3s;
         }
-        
+
         .sidebar a:hover {
-          color: #f1f1f1;
+            color: #f1f1f1;
         }
-        
+
         .sidebar .closebtn {
-          position: absolute;
-          top: 0;
-          right: 25px;
-          font-size: 36px;
-          margin-left: 50px;
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
         }
-        
+
         .openbtn {
-          font-size: 20px;
-          cursor: pointer;
-          background-color: #337ab7;
-          color: aliceblue;
-          border: none;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #337ab7;
+            color: aliceblue;
+            border: none;
         }
-        
+
         .openbtn:hover {
-          background-color: #444;
+            background-color: #444;
         }
-        
+
         #main {
-          transition: margin-left .5s;
-          padding: 16px;
+            transition: margin-left .5s;
+            padding: 16px;
         }
-        
+
         @media screen and (max-height: 450px) {
-          .sidebar {padding-top: 15px;}
-          .sidebar a {font-size: 18px;}
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
         }
-        </style>
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border-radius: 0;
+        }
+
+        .thumbnail p {
+            margin-top: 15px;
+            color: #555;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #337ab7;
+            color: #f1f1f1;
+            border-radius: 5;
+            transition: .2s;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            border: 1px solid #333;
+            background-color: #fff;
+            color: #337ab7;
+        }
+    </style>
 </body>
 <script>
     function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
     }
-    
+
     function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
     }
-    </script>
+</script>
+
 </html>
