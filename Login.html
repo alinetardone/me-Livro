@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"></html>
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -9,7 +7,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-
 <body>
     <div id="mySidebar" class="sidebar navbar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -45,96 +42,72 @@
         </div>
     </nav>
 
-    <div class="container mt-3">
-        <h4 class="mt-5" style="margin-top: 50px;">Mais acessados</h4>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/reriPoti.jpg" alt="Reri Poti">
-                    <h4 class="card-title">Harry Potter e o Cálice</h4>
-                    <div class="card-body">
-                        <p class="card-text">Edição especial</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
+<div class="card text-center">
+    <div class="cardlogin text-center">
+            <br>
+            <h4>Usuario</h4>  <input class="input" name="UsuarioTxt" id="UsuarioTxt">
+            <br>
+            <h4>Senha</h4>  <input  class="input" name="SenhaTxt" id="SenhaTxt" type="password">
+            <br><br><br>
+            <button type="submit" class="btn" >Login</button>
+            <br>
+            <button type="submit" class="btn" style="margin-bottom: 20px;">Cadastrar-se</button>
             </div>
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/felipeNeto.jpg" alt="Felipe Neto">
-                    <h4 class="card-title">Felipe Neto</h4>
-                    <div class="card-body">
-                        <p class="card-text">Depreciado</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/it.jpg" alt="It Malia">
-                    <h4 class="card-title">It - A Coisa</h4>
-                    <div class="card-body">
-                        <p class="card-text">Usado</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
+            <br>
+</div>
+<footer class="footer">
+    <div>
+        <div class="row font-weight-bolder">
+            <div class="col-4" style="margin-left: 20px;">
+                <img src="./img/LogoMeLivro.png" style="margin-left: 20px;height: 130px;width: 130px;"/>
             </div>
         </div>
-        <hr>
         <div class="row">
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/senhorDosAneis.jpg" alt="Reri Poti">
-                    <h4 class="card-title">Senhor dos Aneis</h4>
-                    <div class="card-body">
-                        <p class="card-text">Muito Bom</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
+            <div class="col-4" style="margin-left: 30px;">
+                Fone: (11) 1234-5678
             </div>
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/manga.jpg" alt="Reri Poti">
-                    <h4 class="card-title">Manga de Darling in the FRANXX</h4>
-                    <div class="card-body">
-                        <p class="card-text">Coisa de Otaku</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/LivroRH.jpg" alt="Reri Poti">
-                    <h4 class="card-title">livro Tecnico de Recursos Humanos</h4>
-                    <div class="card-body">
-                        <p class="card-text">Coisas de ADM</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-4"style="margin-left: 30px;">
+                Email: MeLivro@gmail.com
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <div>
-            <div class="row font-weight-bolder">
-                <div class="col-4" style="margin-left: 20px;">
-                    <img src="./img/LogoMeLivro.png" style="margin-left: 20px;height: 130px;width: 130px;"/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4" style="margin-left: 30px;">
-                    Fone: (11) 1234-5678
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4"style="margin-left: 30px;">
-                    Email: MeLivro@gmail.com
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- </div> -->
-    <style>
+</footer>
+</body>
+<style>
+      .btn {
+            padding: 10px 20px;
+            background-color:#337ab7;
+            height: 40px;
+            color: #f1f1f1;
+            border-radius: 8;
+            transition: .2s;
+        }
+        .input{
+            border-color: #3b82c0; 
+            border-radius: 8px;
+        }
+        .card {
+            display:grid;
+            justify-content: center;
+            position: relative;
+            font-size: 10px;
+            width: 100%;
+        }
+        .cardlogin {
+            margin-top: 100px;
+            display:grid;
+            justify-content: center;
+            background-color:rgb(244, 251, 255);
+            border: ridge;
+            position: relative;
+            font-size: 12px;
+            width: 100%;
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+        }
         .nav {
             background-color: #337ab7;
         }
@@ -152,8 +125,6 @@
             height: 300px;
             object-fit: cover;
         }
-    </style>
-    <style>
         body {
             font-family: "Lato", sans-serif;
         }
@@ -228,32 +199,15 @@
             margin-top: 15px;
             color: #555;
         }
-
-        .btn {
-            padding: 10px 20px;
-            background-color: #337ab7;
-            color: #f1f1f1;
-            border-radius: 5;
-            transition: .2s;
-        }
-
-        .btn:hover,
-        .btn:focus {
-            border: 1px solid #333;
-            background-color: #fff;
-            color: #337ab7;
-        }
         .footer{
-            margin-top: 200px;
             font-size: 14px;
             cursor: pointer;
             background-color: #3b82c0;
             color: aliceblue;
             border: none;
-            margin-bottom: 0px;
+            margin-top: 140px;
         }
-    </style>
-</body>
+</style>
 <script>
     function openNav() {
         document.getElementById("mySidebar").style.width = "250px";
@@ -265,5 +219,4 @@
         document.getElementById("main").style.marginLeft = "0";
     }
 </script>
-
 </html>

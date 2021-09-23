@@ -39,86 +39,51 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Conta</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container mt-3">
-        <h4 class="mt-5" style="margin-top: 50px;">Mais acessados</h4>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card text-center">
+        <h4 class="mt-5" style="margin-top: 50px;">Carrinho:</h4>
+        <br><br><br>
+        <div>
+            <div class="row" style="display:block">
+                <div style="display:block">
                     <img class="card-img-top" src="./img/reriPoti.jpg" alt="Reri Poti">
-                    <h4 class="card-title">Harry Potter e o Cálice</h4>
-                    <div class="card-body">
-                        <p class="card-text">Edição especial</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
+                </div>
+                <div class="card-body" style="display:block">
+                    <h4 class="card-title" >Harry Potter e o Cálice</h4>
+                    <br>
+                    <p>30 contos</p>
+                    <button class="btnCarrinho">Tirar do carrinho</button>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="card text-center">
+        </div>
+        <br><br>
+        <div>
+            <div class="row" style="display:block">
+                <div style="display:block">
                     <img class="card-img-top" src="./img/felipeNeto.jpg" alt="Felipe Neto">
+                </div>
+                <div class="card-body" style="display:block">
                     <h4 class="card-title">Felipe Neto</h4>
-                    <div class="card-body">
-                        <p class="card-text">Depreciado</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/it.jpg" alt="It Malia">
-                    <h4 class="card-title">It - A Coisa</h4>
-                    <div class="card-body">
-                        <p class="card-text">Usado</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
+                    <br>
+                    <p>20 contos</p>
+                    <button class="btnCarrinho">Tirar do carrinho</button>
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/senhorDosAneis.jpg" alt="Reri Poti">
-                    <h4 class="card-title">Senhor dos Aneis</h4>
-                    <div class="card-body">
-                        <p class="card-text">Muito Bom</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/manga.jpg" alt="Reri Poti">
-                    <h4 class="card-title">Manga de Darling in the FRANXX</h4>
-                    <div class="card-body">
-                        <p class="card-text">Coisa de Otaku</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card text-center">
-                    <img class="card-img-top" src="./img/LivroRH.jpg" alt="Reri Poti">
-                    <h4 class="card-title">livro Tecnico de Recursos Humanos</h4>
-                    <div class="card-body">
-                        <p class="card-text">Coisas de ADM</p>
-                        <button class="btn">Comprar agora</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <br><br><br><br>
+        <p class="card-text">Você vai gastar 50 contos nessa compra</p>
+        <button class="btn">Finalizar compra</button>
+    </div>>
     <footer class="footer">
         <div>
             <div class="row font-weight-bolder">
                 <div class="col-4" style="margin-left: 20px;">
-                    <img src="./img/LogoMeLivro.png" style="margin-left: 20px;height: 130px;width: 130px;"/>
+                    <img src="./img/LogoMeLivro.png" style="margin-left: 20px;height: 130px;width: 130px;" />
                 </div>
             </div>
             <div class="row">
@@ -127,7 +92,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4"style="margin-left: 30px;">
+                <div class="col-4" style="margin-left: 30px;">
                     Email: MeLivro@gmail.com
                 </div>
             </div>
@@ -148,9 +113,11 @@
         }
 
         img {
-
-            height: 300px;
+            float: left;
+            height: 120px;
+            margin-right: 20px;
             object-fit: cover;
+            border-radius: 5px;
         }
     </style>
     <style>
@@ -243,7 +210,8 @@
             background-color: #fff;
             color: #337ab7;
         }
-        .footer{
+
+        .footer {
             margin-top: 200px;
             font-size: 14px;
             cursor: pointer;
@@ -251,6 +219,15 @@
             color: aliceblue;
             border: none;
             margin-bottom: 0px;
+        }
+
+        .btnCarrinho {
+            padding: 2px 4px;
+            border-color: rgb(255, 255, 255);
+            background-color: #337ab7;
+            color: aliceblue;
+            border-radius: 8;
+            transition: .2s;
         }
     </style>
 </body>
