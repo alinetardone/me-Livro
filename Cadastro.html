@@ -36,8 +36,8 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="./Cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="./Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <li><a href="./Carrinho.html"><img src="./img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
             </ul>
         </div>
@@ -46,11 +46,12 @@
 <div class="card text-center">
     <div class="cardlogin text-center">
             <br>
-            <h4>Usuario</h4>  <input class="input" name="UsuarioTxt" id="UsuarioTxt">
+            <h4>Nome de usuario</h4>  <input class="input" name="UsuarioTxt" id="UsuarioTxt">
             <br>
-            <h4>Senha</h4>  <input  class="input" name="SenhaTxt" id="SenhaTxt" type="password">
-            <br><br><br>
-            <button type="submit" class="btn" onclick="window.location.href = './Layout.html'">Login</button>
+            <h4>Senha</h4><input  class="input" name="SenhaTxt" id="SenhaTxt" type="password">
+            <br>
+            <h4>Confirmar senha</h4>  <input  class="input" name="SenhaTxt" id="SenhaTxt" type="password">
+            <br>
             <br>
             <button type="submit" class="btn" style="margin-bottom: 20px;">Cadastrar-se</button>
             </div>
@@ -171,6 +172,7 @@
             color: aliceblue;
             border: none;
         }
+
 
         #main {
             transition: margin-left .5s;

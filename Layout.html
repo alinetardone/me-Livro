@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>MeLivro</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -13,14 +13,15 @@
 <body>
     <div id="mySidebar" class="sidebar navbar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#">Usuario</a>
-        <a href="#">Serviços</a>
-        <a href="#">Clientes</a>
+        <a href="#">Seus Cadastros</a>
+        <a href="#">Trocados</a>
+        <a href="#">Comprados</a>
         <a href="#">Sobre</a>
     </div>
     <nav class="navbar-dark bg-primary">
         <div class="container-fluid">
             <div class="navbar-header">
+                
                 <a class="navbar-brand"><button class="openbtn" onclick="openNav()">☰ Me Livro</button></a>
             </div>
             <ul class="nav navbar-nav">
@@ -33,13 +34,13 @@
                         <li><a href="#">Auto ajuda</a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="#">Trocar</a></li>
+                <li class="active"><a href="./Trocar.html">Trocar</a></li>
                 <li><a href="#">Comprar</a></li>
-                <li><a href="#">Vender</a></li>
+                <li><a href="./Vender.html">Vender</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="./Cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="./Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <li><a href="./Carrinho.html"><img src="./img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
             </ul>
@@ -199,10 +200,6 @@
             background-color: #337ab7;
             color: aliceblue;
             border: none;
-        }
-
-        .openbtn:hover {
-            background-color: #444;
         }
 
         #main {
