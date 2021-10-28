@@ -38,7 +38,7 @@ function fazCadastro(url, userName, senha) {
     }
     httpRequest.onreadystatechange = alertContents;
     httpRequest.open('POST', url);
-    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.setRequestHeader('Content-Type', 'application/json');
     httpRequest.send('userName=' + encodeURIComponent(userName) + 'senha=' + encodeURIComponent(senha));
 }
 
