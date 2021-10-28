@@ -18,7 +18,6 @@ document.getElementById("cadastro").onclick = function() {
 };
 
 function fazCadastro(url, userName, senha) {
-
   fetch(url,{
     method : "POST",
     mode: 'cors',
