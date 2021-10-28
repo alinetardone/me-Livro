@@ -3,6 +3,7 @@ package com.client.apiclient.Models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity(name = "Foto")
 public class FotoModel {
@@ -13,7 +14,8 @@ public class FotoModel {
     @Column(nullable=false)
     public Integer Id_Produto;
 
+    @Lob
     @Column(nullable=false)
-    public String imagem;
+    public byte[] imagem;
 
 }

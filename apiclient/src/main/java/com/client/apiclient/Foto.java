@@ -40,4 +40,8 @@ public class Foto {
         return "Registro de id "+id+" deletado";
     }
 
+    @GetMapping(path = "/foto/imagem/{id}")
+    public Object findImagensByLivroId(@PathVariable("id") Integer id) {
+        return repository.findImagensByLivroId(id);
+    }
 }
