@@ -1,0 +1,83 @@
+<html lang="en"></html>
+<head>
+    <title>MeLivro</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login-cadastro.css">
+    <link rel="stylesheet" href="../css/geral.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="mySidebar" class="sidebar navbar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#">Seus Cadastros</a>
+        <a href="#">Trocados</a>
+        <a href="#">Comprados</a>
+        <a href="#">Sobre</a>
+    </div>
+    <nav class="navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand"><button class="openbtn" onclick="openNav()">☰ Me Livro</button></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Todos<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Terror</a></li>
+                        <li><a href="#">Aventura</a></li>
+                        <li><a href="#">Ficção</a></li>
+                        <li><a href="#">Auto ajuda</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="./Trocar.html">Trocar</a></li>
+                <li><a href="./Layout.html">Comprar</a></li>
+                <li><a href="./Vender.html">Vender</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="./Cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="./Carrinho.html"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="card text-center">
+    <div class="cardlogin text-center">
+            <br>
+            <h4>Usuario</h4>  <input class="input" name="UsuarioTxt" id="UsuarioTxt">
+            <br>
+            <h4>Senha</h4>  <input  class="input" name="SenhaTxt" id="SenhaTxt" type="password">
+            <br><br><br>
+            <button type="submit" class="btn" onclick="window.location.href = './Layout.html'">Login</button>
+            <br>
+            <button type="submit" class="btn" style="margin-bottom: 20px;">Cadastrar-se</button>
+            </div>
+            <br>
+</div>
+<footer class="footer">
+    <div>
+        <div class="row font-weight-bolder">
+            <div class="col-4" style="margin-left: 20px;">
+                <img src="../img/LogoMeLivro.png" style="margin-left: 20px;height: 130px;width: 130px;"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="margin-left: 30px;">
+                Fone: (11) 1234-5678
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"style="margin-left: 30px;">
+                Email: MeLivro@gmail.com
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+<script type="text/javascript" src="../js/index.js"></script>
+</html>
