@@ -49,8 +49,8 @@ document.getElementById("vender").onclick = function() {
   var generoLivro = document.getElementById("genero-vender").value;
   var precoLivro = document.getElementById("PrecoTxt").value;
   var imagem = document.getElementById("FotoTxt").value;
-  cadastroLivro('http:/localhost:8083/livro/post',nomeLivro ,generoLivro, precoLivro);
-  cadastroFotoLivro('http:/localhost:8083/foto/post', imagem)
+  cadastroLivro('http://localhost:8083/livro/post',nomeLivro ,generoLivro, precoLivro);
+  cadastroFotoLivro('http://localhost:8083/foto/post', imagem)
 };
 
 function cadastroLivro(url, nomeLivro ,generoLivro, precoLivro) {
