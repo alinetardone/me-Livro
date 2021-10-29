@@ -10,13 +10,11 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
 }
 
-document.getElementById("cadastro").onclick = function () {
+function fazCadastro(url, userName, senha) {
   var userName = document.getElementById("UsuarioTxt").value;
   var senha = document.getElementById("SenhaTxt").value;
-  fazCadastro('http://localhost:8083/client/post', userName, senha);
-};
+  var url = 'http://localhost:8083/client/post';
 
-function fazCadastro(url, userName, senha) {
   fetch(url, {
     method: "POST",
     mode: 'cors',
@@ -45,7 +43,7 @@ function append(parent, el) {
 }
 
 function listaLivros(getLivros) {
-
+  
   const ul = document.getElementById('livros');
 
   fetch(getLivros, {
@@ -82,16 +80,12 @@ function listaLivros(getLivros) {
     });
 }
 
-document.getElementById("vender").onclick = function() {
+function cadastroLivro(url, nomeLivro ,generoLivro, precoLivro) {
   var nomeLivro = document.getElementById("NomeLivroTxt").value;
   var generoLivro = document.getElementById("genero-vender").value;
   var precoLivro = document.getElementById("PrecoTxt").value;
-  var imagem = document.getElementById("FotoTxt").value;
-  cadastroLivro('http://localhost:8083/livro/post',nomeLivro ,generoLivro, precoLivro);
-  cadastroFotoLivro('http://localhost:8083/foto/post', imagem)
-};
+  var url = 'http://localhost:8083/livro/post';
 
-function cadastroLivro(url, nomeLivro ,generoLivro, precoLivro) {
   fetch(url,{
     method : "POST",
     mode: 'cors',
@@ -105,6 +99,8 @@ function cadastroLivro(url, nomeLivro ,generoLivro, precoLivro) {
 ).then(
     html => console.log(html)
 );
+var imagem = document.getElementById("FotoTxt").value;
+cadastroFotoLivro('http://localhost:8083/foto/post', imagem)
 }
 
 function cadastroFotoLivro(url, imagem) {
