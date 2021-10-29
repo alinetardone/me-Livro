@@ -24,6 +24,11 @@ public class Livro {
       .map(record -> ResponseEntity.ok().body(record));
     }
 
+    @GetMapping(path = "/livro/get")
+    public Object getAll() {
+      return  repository.findAll();
+    }
+
     @PostMapping(path = "/livro/post")
     public Object insert(@RequestBody LivroModel Livro) {
       Livro.id=getProxId();
