@@ -57,7 +57,7 @@
                 <h4>Nome do livro</h4> <input class="input" name="NomeLivroTxt" id="NomeLivroTxt">
                 <br>
                 <h4>Genero</h4>
-                <select class="dropdown dropdwon-genero">
+                <select class="dropdown dropdwon-genero" id="genero-vender">
                     <option><a href="#">Terror</a></option>
                     <option><a href="#">Aventura</a></option>
                     <option><a href="#">Ficção</a></option>
@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-vender" style="margin-bottom: 20px;">Vender</button>
+                <button type="submit" class="btn btn-vender" style="margin-bottom: 20px;" id="vender" onclick="cadastroLivro()">Vender</button>
             </div>
 
             <div class="col">

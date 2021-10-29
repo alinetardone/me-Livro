@@ -34,7 +34,7 @@ public class Foto {
         return Math.toIntExact(repository.count())+1;
     }
 
-    @DeleteMapping(path = "/fptp/delete/{id}")
+    @DeleteMapping(path = "/foto/delete/{id}")
     public Object delete(@PathVariable("id") Integer id) {
         repository.deleteById(id);
         return "Registro de id "+id+" deletado";
