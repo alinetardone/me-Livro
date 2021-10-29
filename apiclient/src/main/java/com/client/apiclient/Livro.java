@@ -40,6 +40,13 @@ public class Livro {
         return Math.toIntExact(repository.count())+1;
     }
 
+    @GetMapping(path = "/livro/get/id")
+    public Object getProxIdlivro()
+    {
+        return  repository.findById(getProxId()-1);
+    }
+
+
     @DeleteMapping(path = "/livro/delete/{id}")
     public Object delete(@PathVariable("id") Integer id) {
         repository.deleteById(id);

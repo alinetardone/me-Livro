@@ -34,6 +34,21 @@ function fazCadastro(url, userName, senha) {
   );
 }
 
+
+function getBase64Image(){  
+    var url;
+    var canvas = document.createElement("canvas");
+    var img1=document.createElement("img");    
+    url = document.getElementById("FotoTxt").value;
+    img1.setAttribute('src', url); 
+    canvas.width = img1.width; 
+    canvas.height = img1.height; 
+    var ctx = canvas.getContext("2d"); 
+    ctx.drawImage(img1, 0, 0); 
+    var dataURL = canvas.toDataURL("image/png");
+    return dataURL;
+} 
+
 function createNode(element) {
   return document.createElement(element);
 }
@@ -43,10 +58,10 @@ function append(parent, el) {
 }
 
 function listaLivros(getLivros) {
-  
+  console.log("list iniciado...");
   const ul = document.getElementById('livros');
 
-  fetch(getLivros, {
+  fetch("http://localhost:8083/livro/get", {
       method: "GET",
       mode: 'cors',
       headers: {
@@ -58,21 +73,14 @@ function listaLivros(getLivros) {
 
     ).then(function (data) {
 
-      let livros = data.results;
-
-      return livros.map(function (livro) {
-
-        let li = createNode('li');
-        let img = createNode('img');
-        let span = createNode('span');
-
-        // img.src = livro;
-        span.innerHTML = `${livro.titulo} ${livro.genero}`;
-
-        append(li, img);
-        append(li, span);
-        append(ul, li);
-      })
+      let livros = data;
+      console.log(livros);
+      var number=1;
+      livros.forEach(data => {
+        document.getElementById("titulo"+number).value=data.titulo;
+        document.getElementById("preco"+number).value=data.preco;
+        number++;
+      });
     })
     .catch(function (error) {
 
@@ -99,11 +107,28 @@ function cadastroLivro(url, nomeLivro ,generoLivro, precoLivro) {
 ).then(
     html => console.log(html)
 );
-var imagem = document.getElementById("FotoTxt").value;
-cadastroFotoLivro('http://localhost:8083/foto/post', imagem)
+var id_Livro=0;
+
+fetch("http://localhost:8083/livro/get/id", {
+  method: "GET",
+  mode: 'cors',
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  }
+}).then(
+  response => response.json()
+
+).then(function (data) {
+  id_Livro = data.id;
+})
+alert("" );   
+cadastroFotoLivro('http://localhost:8083/foto/post', getBase64Image(), 1, id_Livro);
+alert("" );   
 }
 
-function cadastroFotoLivro(url, imagem) {
+function cadastroFotoLivro(url, imagem, id_Client, id_Livro ) {
+   
   fetch(url,{
     method : "POST",
     mode: 'cors',
@@ -111,12 +136,13 @@ function cadastroFotoLivro(url, imagem) {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
     },
-    body: JSON.stringify({imagem:imagem}),
+    body: JSON.stringify({imagem:imagem, id_Livro:id_Livro,id_Client:id_Client}),
 }).then(
     response => response.text() 
 ).then(
     html => console.log(html)
 );
+ 
 }
 function alertContents() {
   if (httpRequest.readyState === 4) {
