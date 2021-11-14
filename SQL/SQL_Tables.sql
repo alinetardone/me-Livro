@@ -25,5 +25,5 @@ concluida bit
 create table Foto(
 id int PRIMARY key IDENTITY(1,1),
 id_Produto Int,
-imagem varbinary(max)
+imagem varchar(max)
 )

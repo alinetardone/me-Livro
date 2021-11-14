@@ -43,9 +43,8 @@ public class Livro {
     @GetMapping(path = "/livro/get/id")
     public Object getProxIdlivro()
     {
-        return  repository.findById(getProxId()-1);
+        return repository.findById(getProxId()-1);
     }
-
 
     @DeleteMapping(path = "/livro/delete/{id}")
     public Object delete(@PathVariable("id") Integer id) {

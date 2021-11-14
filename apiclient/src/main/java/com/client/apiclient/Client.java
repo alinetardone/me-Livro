@@ -1,5 +1,7 @@
 package com.client.apiclient;
 
+import java.io.Console;
+
 import com.client.apiclient.Cruds.ClientCRUD;
 import com.client.apiclient.Models.ClientModel;
 
@@ -27,6 +29,16 @@ public class Client {
     public Object insert(@RequestBody ClientModel Cliente) {
       Cliente.id=getProxId();
       return  repository.save(Cliente);
+    }
+    
+    @PostMapping(path = "/client/checkUsuario")
+    public Object checkUsuario(@RequestBody ClientModel Cliente) {
+      return  repository.checkUsuario(Cliente.usuario);
+    }
+
+    @PostMapping(path = "/client/login")
+    public Object login(@RequestBody ClientModel Cliente) {
+      return  repository.login(Cliente.usuario,Cliente.senha);
     }
 
     public Integer getProxId()
