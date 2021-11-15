@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import com.client.apiclient.Models.CarrinhoModel;
 
 public interface CarrinhoCRUD extends CrudRepository<CarrinhoModel,Integer>{
-    @Query("from Carrinho c where c.id_Cliente=:id")
-    public Object[] findByCategory(Integer id);
+    @Query("from Carrinho c inner join Livro l on c.id_Livro = l.id where c.id_Cliente=:id")
+    public Object[] findByClient(Integer id);
 }

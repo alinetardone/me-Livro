@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <input id="id_Cliente" value=""readonly hidden>
     <div id="mySidebar" class="sidebar navbar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a href="#">Seus Cadastros</a>
@@ -36,16 +37,15 @@
                         <li><a href="#">Auto ajuda</a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="#">Trocar</a></li>
-                <li><a href="./Layout.html">Comprar</a></li>
-                <li><a href="./Vender.html">Vender</a></li>
+                <li class="active"><a href="./Trocar.html">Trocar</a></li>
+                <li><a onclick="goComprar()">Comprar</a></li>
+                <li><a onclick="goVender()">Vender</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="./Cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a onclick="goCadastro()""><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="./Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li><a href="./Carrinho.html"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a>
-                </li>
+                <li><a onclick="goCarrinho()"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
             </ul>
 
         </div>

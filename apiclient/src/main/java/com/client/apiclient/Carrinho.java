@@ -25,6 +25,7 @@ public class Carrinho {
     @PostMapping(path = "/carrinho/post")
     public Object insert(@RequestBody CarrinhoModel Carrinho) {
       Carrinho.id=getProxId();
+      Carrinho.concluida=0;
       return  repository.save(Carrinho);
     }
 
@@ -41,7 +42,7 @@ public class Carrinho {
 
     @GetMapping(path = "/carrinho/get/client/{id}")
     public Object getbyClient(@PathVariable("id") Integer id) {
-        return repository.findByCategory(id);
+        return repository.findByClient(id);
     }
 
 

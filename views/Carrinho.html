@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <input id="id_Cliente" value=""readonly hidden>
     <div id="mySidebar" class="sidebar navbar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a href="#">Seus Cadastros</a>
@@ -36,14 +37,14 @@
                     </ul>
                 </li>
                 <li class="active"><a href="./Trocar.html">Trocar</a></li>
-                <li><a href="./Layout.html">Comprar</a></li>
-                <li><a href="./Vender.html">Vender</a></li>
+                <li><a onclick="goComprar()">Comprar</a></li>
+                <li><a onclick="goVender()">Vender</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="./Cadastro.html"><span class="glyphicon glyphicon-user"></span> Conta</a></li>
+                <li><a onclick="goCadastro()""><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="./Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li><a href="./Carrinho.html"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
+                <li><a onclick="goCarrinho()"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
             </ul>
         </div>
     </nav>
@@ -51,29 +52,57 @@
     <div class="container mt-3">
         <h4 class="mt-5" style="margin-top: 50px;">Carrinho:</h4>
         <br><br><br>
-        <div>
+        <div id="livro1" >
             <div class="row" style="display:block">
                 <div style="display:block">
-                    <img class="card-img-top" src="../img/reriPoti.jpg" alt="Reri Poti">
+                    <img class="card-img-top" src="../img/reriPoti.jpg" alt="Reri Poti" id="foto1">
                 </div>
                 <div class="card-body" style="display:block">
-                    <h4 class="card-title" >Harry Potter e o Cálice</h4>
+                    <input id="titulo1" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <br>
-                    <p>30 contos</p>
+                    <input id="preco1" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <button class="btnCarrinho">Tirar do carrinho</button>
                 </div>
             </div>
         </div>
         <br><br>
-        <div>
+        <div id="livro2" >
             <div class="row" style="display:block">
                 <div style="display:block">
-                    <img class="card-img-top" src="../img/felipeNeto.jpg" alt="Felipe Neto">
+                    <img class="card-img-top" src="../img/felipeNeto.jpg" alt="Felipe Neto"  id="foto2">
                 </div>
                 <div class="card-body" style="display:block">
-                    <h4 class="card-title">Felipe Neto</h4>
+                    <input id="titulo2" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <br>
-                    <p>20 contos</p>
+                    <input id="preco2" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
+                    <button class="btnCarrinho">Tirar do carrinho</button>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div id="livro3" >
+            <div class="row" style="display:block">
+                <div style="display:block">
+                    <img class="card-img-top" src="../img/felipeNeto.jpg" alt="Felipe Neto"  id="foto3">
+                </div>
+                <div class="card-body" style="display:block">
+                    <input id="titulo3" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
+                    <br>
+                    <input id="preco3" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
+                    <button class="btnCarrinho">Tirar do carrinho</button>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div id="livro4" >
+            <div class="row" style="display:block">
+                <div style="display:block">
+                    <img class="card-img-top" src="../img/felipeNeto.jpg" alt="Felipe Neto"  id="foto4">
+                </div>
+                <div class="card-body" style="display:block">
+                    <input id="titulo4" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
+                    <br>
+                    <input id="preco4" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <button class="btnCarrinho">Tirar do carrinho</button>
                 </div>
             </div>
@@ -104,5 +133,9 @@
     <!-- </div> -->
 </body>
 <script type="text/javascript" src="../js/index.js"></script>
-
+<script>
+    $(document).ready(function(){
+        listaLivrosCarrinho();
+    });
+    </script>
 </html>

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <input id="id_Cliente" value=""readonly hidden>
     <div id="mySidebar" class="sidebar navbar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a href="#">Seus Cadastros</a>
@@ -37,14 +38,14 @@
                     </ul>
                 </li>
                 <li class="active"><a href="./Trocar.html">Trocar</a></li>
-                <li><a href="#">Comprar</a></li>
-                <li><a href="./Vender.html">Vender</a></li>
+                <li><a onclick="goComprar()">Comprar</a></li>
+                <li><a onclick="goVender()">Vender</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="./Cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a onclick="goCadastro()""><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="./Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li><a href="./Carrinho.html"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
+                <li><a onclick="goCarrinho()"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
             </ul>
         </div>
     </nav>
@@ -53,34 +54,33 @@
         <h4 class="mt-5" style="margin-top: 50px;">Mais acessados</h4>
         <hr>
         <div class="row">
-            
-                <div class="col-sm-4">
+            <div class="col-sm-4" id="livro1">
                 <div class="card text-center">
                     <img class="card-img-top" src="../img/reriPoti.jpg" alt="Reri Poti" id="foto1">
                     <input id="titulo1" value=""readonly style="text-align: center;font-size: medium;border: 0px;">
                     <div class="card-body">
                         <input id="preco1" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
-                        <button class="btn">Comprar agora</button>
+                        <button class="btn" id="btnCompra1" onclick="btnCompra1()">Comprar agora</button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4"  id="livro2">
                 <div class="card text-center">
                     <img class="card-img-top" src="../img/felipeNeto.jpg" alt="Felipe Neto" id="foto2">
                     <input id="titulo2" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <div class="card-body">
                         <input id="preco2" value=""readonly  style="text-align: center;font-size: medium;border: 0px;"> 
-                        <button class="btn">Comprar agora</button>
+                        <button class="btn" id="btnCompra2" onclick="btnCompra2()">Comprar agora</button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4"  id="livro3">
                 <div class="card text-center">
                     <img class="card-img-top" src="../img/it.jpg" alt="It Malia" id="foto3">
                     <input id="titulo3" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <div class="card-body">
                         <input id="preco3" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
-                        <button class="btn">Comprar agora</button>
+                        <button class="btn" id="btnCompra3" onclick="btnCompra3()">Comprar agora</button>
                     </div>
                 </div>
             </div>
@@ -88,33 +88,33 @@
         </div>   
         <hr>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4" id="livro4">
                 <div class="card text-center">
                     <img class="card-img-top" src="../img/senhorDosAneis.jpg" alt="Reri Poti" id="foto4">
                     <input id="titulo4" value=""readonly style="text-align: center;font-size: medium;border: 0px;">
                     <div class="card-body">
                         <input id="preco4" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
-                        <button class="btn">Comprar agora</button>
+                        <button class="btn" id="btnCompra4" onclick="btnCompra4()">Comprar agora</button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4"  id="livro5">
                 <div class="card text-center">
                     <img class="card-img-top" src="../img/manga.jpg" alt="Reri Poti" id="foto5">
                     <input id="titulo5" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <div class="card-body">
                         <input id="preco5" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
-                        <button class="btn">Comprar agora</button>
+                        <button class="btn" id="btnCompra5" onclick="btnCompra5()">Comprar agora</button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4"  id="livro6">
                 <div class="card text-center">
                     <img class="card-img-top" src="../img/LivroRH.jpg" alt="Reri Poti" id="foto6"> 
                     <input id="titulo6" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <div class="card-body">
                         <input id="preco6" value=""readonly  style="text-align: center;font-size: medium;border: 0px;"> 
-                        <button class="btn">Comprar agora</button>
+                        <button class="btn" id="btnCompra6" onclick="btnCompra6()">Comprar agora</button>
                     </div>
                 </div>
             </div>
