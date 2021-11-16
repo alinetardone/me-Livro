@@ -66,28 +66,6 @@
                 <br>
                 <h4>Preço (Contos)</h4> <input class="input" name="PrecoTxt" id="PrecoTxt">
                 <br>
-                <h4>Aceita trocar pelos livros: </h4>
-                <div class="col-sm-4">
-                    <div class="card text-center">
-                        <img class="card-img-top" src="../img/paraLeigos.jpg" alt="Reri Poti">
-                        <h4 class="card-title">Construindo Web Sites Para Leigos</h4>
-                        <div class="card-body">
-                            <p class="card-text">Técnicos</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-2"></div>
-
-                <div class="col-sm-4">
-                    <div class="card text-center">
-                        <img class="card-img-top" src="../img/felipeNeto.jpg" alt="Reri Poti">
-                        <h4 class="card-title">Felipe Neto - A Vida Por Trás das Câmeras</h4>
-                        <div class="card-body">
-                            <p class="card-text">Diversos</p>
-                        </div>
-                    </div>
-                </div>
                 <br>
                 <button class="btn btn-vender" style="margin-bottom: 20px;" id="vender" onclick="cadastroLivro()">Vender</button>
             </div>
@@ -96,7 +74,10 @@
                 <div>
                     <br>
                     <h4 class="input-livro">Fotos do livro: </h4>
-                    <input class="input input-livro" name="FotoTxt" id="FotoTxt" type="file">
+                    <input class="input input-livro" name="FotoTxt" id="Imagem" type="file" onchange="exibirImagem()"> 
+                    <img id="imgPreview" src="data:image/jpeg;base64," class="img-responsive"
+                    width="200">
+                     <span asp-validation-for="Imagem" class="text-danger"></span>
                     <br>
                     <input class="input input-livro" name="FotoTxt" id="FotoTxt" type="file">
                     <br>

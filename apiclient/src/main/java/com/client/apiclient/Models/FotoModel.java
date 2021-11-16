@@ -16,6 +16,6 @@ public class FotoModel {
 
     @Lob
     @Column(nullable=false)
-    public String imagem;
+    public Byte[] imagem;
 
 }

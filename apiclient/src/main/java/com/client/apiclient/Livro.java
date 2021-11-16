@@ -52,5 +52,9 @@ public class Livro {
         return "Registro de id "+id+" deletado";
     }
 
+    @GetMapping(path = "/livro/list")
+    public Object list() {
+      return  repository.listLivros();
+    }
 
 }

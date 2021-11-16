@@ -29,12 +29,31 @@ function queryString(parameter) {
   }   
 }
 
+function exibirImagem() {
+	var oFReader = new FileReader();
+	oFReader.readAsDataURL(document.getElementById("Imagem").files[0]);
+	oFReader.onload = function (oFREvent) {
+		document.getElementById("imgPreview").src = oFREvent.target.result;
+
+	}
+};
+
 function goCarrinho(){
   id_cliente = parseInt(queryString("client"));
+  if(id_cliente == undefined)
+  {
+    alert("Você realizar o login para acessar o carrinho");
+    return;
+  }
   window.location = "Carrinho.html?client="+id_cliente;
 }
 function goVender(){
   id_cliente = parseInt(queryString("client"));
+  if(id_cliente == undefined)
+  {
+    alert("Você realizar o login para vender um livro");
+    return;
+  }
   window.location = "Vender.html?client="+id_cliente;
 }
 function goCadastro(){
@@ -179,6 +198,12 @@ function btnCompra1(){
 
 function colocaCarrinho(id_client,id_produto)
 {
+  if(id_client == undefined)
+  {
+    alert("Você realizar o login para comprar");
+    return;
+  }
+
   var url="http://localhost:8083/carrinho/post";
   fetch(url, {
     method: "POST",
@@ -207,7 +232,7 @@ function listaLivros() {
   console.log("list iniciado...");
   const ul = document.getElementById('livros');
 
-  fetch("http://localhost:8083/livro/get", {
+  fetch("http://localhost:8083/livro/list", {
     method: "GET",
     mode: 'cors',
     headers: {
@@ -223,9 +248,9 @@ function listaLivros() {
     console.log(livros);
     var number = 1;
     livros.forEach(data => {
-      document.getElementById("titulo" + number).value = data.titulo;
-      document.getElementById("preco" + number).value = data.preco;
-      document.getElementById("foto" + number).value = "~/img/" + data.id;
+      document.getElementById("titulo" + number).value = data[0].titulo;
+      document.getElementById("preco" + number).value = "R$ " + data[0].preco;
+      document.getElementById("foto" + number).src = "data:image/jpeg;base64," +  btoa(String.fromCharCode.apply(null, new Uint8Array(data[1].imagem)));
       number++;
     });
   })
@@ -256,8 +281,8 @@ function listaLivrosCarrinho() {
     var number = 1;
     livros.forEach(data => {
       document.getElementById("titulo" + number).value = data[1].titulo;
-      document.getElementById("preco" + number).value = data[1].preco;
-      document.getElementById("foto" + number).value = "~/img/" + data[1].id;
+      document.getElementById("preco" + number).value = "R$ " + data[1].preco;
+      document.getElementById("foto" + number).src = "data:image/jpeg;base64," + btoa(String.fromCharCode.apply(null, new Uint8Array(data[2].imagem)));;
       number++;
     });
   })
@@ -300,31 +325,23 @@ async function cadastroLivro(nomeLivro, generoLivro, precoLivro) {
   }).then(
     response => response.json()
   ).then(function (data) {
+    console.log(data);
     id_Livro = data.id;
   })
 
   console.log(id_Livro);
   console.log("id pego")
-  var image = document.getElementById("FotoTxt").files;
+	var oFReader = new FileReader();
+	oFReader.readAsDataURL(document.getElementById("Imagem").files[0]);
+	oFReader.onload = function (oFREvent) {
+	var image = oFREvent.target.result;
+  image = image.substring(23);
   cadastroFotoLivro('http://localhost:8083/foto/post', image, id_Livro);
 }
 
 async function cadastroFotoLivro(url, imagem, id_Livro) {
-  var fileUrl
-  console.log(imagem);
   console.log("Cadastro de imagem iniciado");
-  if (imagem != null && imagem.length > 0) {
-    console.log("salvando imagem");
-    var dirUrl = "~/img/";
-
-
-    if (!Directory.Exists(dirPath)) {
-      Directory.CreateDirectory(dirPath);
-    }
-    fileUrl = dirUrl + "/" + id_Livro;
-    imagem.SaveAs(fileUrl);
-    console.log(fileUrl);
-
+  console.log(imagem);
     fetch(url, {
       method: "POST",
       mode: 'cors',
@@ -332,7 +349,7 @@ async function cadastroFotoLivro(url, imagem, id_Livro) {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify({ imagem: fileUrl, id_Livro: id_Livro }),
+      body: JSON.stringify({ imagem: imagem, Id_Produto: id_Livro }),
     }).then(
       response => response.text()
     ).then(

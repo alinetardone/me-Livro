@@ -24,9 +24,9 @@ public class Foto {
     }
 
     @PostMapping(path = "/foto/post")
-    public Object insert(@RequestBody FotoModel Carrinho) {
-      Carrinho.id=getProxId();
-      return  repository.save(Carrinho);
+    public Object insert(@RequestBody FotoModel foto) {
+      foto.id=getProxId();
+      return  repository.save(foto);
     }
 
     public Integer getProxId()
