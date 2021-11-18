@@ -45,6 +45,15 @@ public class Carrinho {
         return repository.findByClient(id);
     }
 
+    @GetMapping(path = "/carrinho/close/{id}")
+    public Object closeVenda(@PathVariable("id") Integer id) {
+      return repository.closeVenda(id);
+    }
 
+    @PostMapping(path = "/carrinho/close")
+    public Object close(@RequestBody CarrinhoModel Carrinho) {
+      repository.deleteById(Carrinho.id);
+      return repository.save(Carrinho);
+    }
 
 }

@@ -29,6 +29,11 @@ function queryString(parameter) {
   }   
 }
 
+function isNaN(value) {
+  var n = Number(value);
+  return n !== n;
+}
+
 function exibirImagem() {
 	var oFReader = new FileReader();
 	oFReader.readAsDataURL(document.getElementById("Imagem").files[0]);
@@ -40,7 +45,8 @@ function exibirImagem() {
 
 function goCarrinho(){
   id_cliente = parseInt(queryString("client"));
-  if(id_cliente == undefined)
+  console.log(id_cliente);
+  if(isNaN(id_cliente))
   {
     alert("Você realizar o login para acessar o carrinho");
     return;
@@ -49,7 +55,8 @@ function goCarrinho(){
 }
 function goVender(){
   id_cliente = parseInt(queryString("client"));
-  if(id_cliente == undefined)
+  console.log(id_cliente);
+  if(isNaN(id_cliente))
   {
     alert("Você realizar o login para vender um livro");
     return;
@@ -220,6 +227,98 @@ function colocaCarrinho(id_client,id_produto)
   );
 }
 
+function FechaVenda()
+{
+  id_cliente = parseInt(queryString("client"));
+  console.log(id_cliente);
+  if(isNaN(id_cliente))
+  {
+    alert("Você realizar o login para acessar o carrinho");
+    return;
+  }
+  var precototal = document.getElementById("precototal").value;
+
+  fetch("http://localhost:8083/client/menosContos", {
+    method: "POST",
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: JSON.stringify({
+      id: id_cliente,
+      contos: precototal+".0"
+    })
+  }).then(
+    response => response.json()
+  ).then(function (data) {
+    console.log(data);
+    id_Livro = data.id;
+    if(data.contos<0)
+    {
+      alert("Voce não tem contos suficientes para essa compra")
+      fetch("http://localhost:8083/client/AddContos", {
+        method: "POST",
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({
+          id: id_cliente,
+          contos: precototal+".0"
+        })
+      }).then(
+        response => response.json()
+      ).then(function (data) {
+        console.log(data);
+        id_Livro = data.id;
+      })
+      return;
+    }
+  }) 
+
+  var url="http://localhost:8083/carrinho/close/"+id_cliente;
+  fetch(url, {
+    method: "GET",
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  }).then(
+    response => response.json()
+    ).then(function (response) { 
+
+    console.log(response);
+
+    response.forEach(data => {
+      
+    fetch("http://localhost:8083/carrinho/close", {
+      method: "POST",
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify({
+        id: data.id,
+        id_Cliente: data.id_Cliente,
+        id_Livro: data.id_Livro,
+        concluida:1
+      })
+    }).then(
+      response => response.json()
+    ).then(function (data) {
+      console.log(data);
+      id_Livro = data.id;
+    })
+  });
+})
+
+  alert("Venda concluida com sucesso!")
+}
+
 function createNode(element) {
   return document.createElement(element);
 }
@@ -249,7 +348,7 @@ function listaLivros() {
     var number = 1;
     livros.forEach(data => {
       document.getElementById("titulo" + number).value = data[0].titulo;
-      document.getElementById("preco" + number).value = "R$ " + data[0].preco;
+      document.getElementById("preco" + number).value = data[0].preco + " Contos";;
       document.getElementById("foto" + number).src = "data:image/jpeg;base64," +  btoa(String.fromCharCode.apply(null, new Uint8Array(data[1].imagem)));
       number++;
     });
@@ -265,6 +364,26 @@ function listaLivrosCarrinho() {
   console.log(id_cliente);
   console.log("list iniciado...");
 
+  fetch("http://localhost:8083/client/get/"+id_cliente, {
+    method: "GET",
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  }).then(
+    response => response.json()
+  ).then(function (datas) {
+    let livros = datas;
+    console.log(livros);
+    console.log(datas.body.contos);
+    document.getElementById("atdContos").value = "Voce possui " + datas.body.contos + " Contos";
+  })
+    .catch(function (error) {
+
+      console.log(error);
+    });
+
   fetch("http://localhost:8083/carrinho/get/client/"+id_cliente, {
     method: "GET",
     mode: 'cors',
@@ -274,17 +393,19 @@ function listaLivrosCarrinho() {
     }
   }).then(
     response => response.json()
-
   ).then(function (datas) {
+    let precototal=0;
     let livros = datas;
     console.log(livros);
     var number = 1;
     livros.forEach(data => {
       document.getElementById("titulo" + number).value = data[1].titulo;
-      document.getElementById("preco" + number).value = "R$ " + data[1].preco;
+      document.getElementById("preco" + number).value =  data[1].preco + " Contos";
       document.getElementById("foto" + number).src = "data:image/jpeg;base64," + btoa(String.fromCharCode.apply(null, new Uint8Array(data[2].imagem)));;
       number++;
+      precototal+=data[1].preco;
     });
+    document.getElementById("precototal").value = precototal;
   })
     .catch(function (error) {
 
@@ -293,12 +414,20 @@ function listaLivrosCarrinho() {
 }
 
 async function cadastroLivro(nomeLivro, generoLivro, precoLivro) {
+  id_cliente = parseInt(queryString("client"));
+  console.log(id_cliente);
+  if(isNaN(id_cliente))
+  {
+    alert("Você realizar o login para acessar o carrinho");
+    return;
+  }
+
   var nomeLivro = document.getElementById("NomeLivroTxt").value;
   var generoLivro = document.getElementById("genero-vender").value;
   var precoLivro = document.getElementById("PrecoTxt").value;
   var url = 'http://localhost:8083/livro/post';
-
-  fetch(url, {
+  var id_Livro;
+  await fetch(url, {
     method: "POST",
     mode: 'cors',
     headers: {
@@ -308,10 +437,7 @@ async function cadastroLivro(nomeLivro, generoLivro, precoLivro) {
     body: JSON.stringify({ titulo: nomeLivro, genero: generoLivro, preco: precoLivro }),
   }).then(
     response => response.text()
-  ).then(
-    html => console.log(html)
   );
-  var id_Livro;
 
   console.log("pegando id")
 
@@ -327,7 +453,7 @@ async function cadastroLivro(nomeLivro, generoLivro, precoLivro) {
   ).then(function (data) {
     console.log(data);
     id_Livro = data.id;
-  })
+  }); 
 
   console.log(id_Livro);
   console.log("id pego")
@@ -336,7 +462,26 @@ async function cadastroLivro(nomeLivro, generoLivro, precoLivro) {
 	oFReader.onload = function (oFREvent) {
 	var image = oFREvent.target.result;
   image = image.substring(23);
+  
   cadastroFotoLivro('http://localhost:8083/foto/post', image, id_Livro);
+
+  fetch("http://localhost:8083/client/AddContos", {
+    method: "POST",
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: JSON.stringify({
+      id: id_cliente,
+      contos: parseFloat(precoLivro)
+    })
+  }).then(
+    response => response.json()
+  ).then(function (data) {
+    console.log(data);
+    id_Livro = data.id;
+  })
 }
 
 async function cadastroFotoLivro(url, imagem, id_Livro) {
@@ -357,6 +502,7 @@ async function cadastroFotoLivro(url, imagem, id_Livro) {
     );
   }
 }
+
 function alertContents() {
   if (httpRequest.readyState === 4) {
     if (httpRequest.status === 200) {

@@ -21,5 +21,7 @@ public class ClientModel {
     @Column(nullable=false, length = 30)
     public String senha;
 
+    @Column(nullable=false)
+    public Double contos;
 
 }

@@ -27,6 +27,7 @@ public class Client {
     @PostMapping(path = "/client/post")
     public Object insert(@RequestBody ClientModel Cliente) {
       Cliente.id=getProxId();
+      Cliente.contos=0.0;
       return  repository.save(Cliente);
     }
     
@@ -56,5 +57,21 @@ public class Client {
         return "Registro de id "+id+" deletado";
     }
 
+    @PostMapping(path = "/client/AddContos")
+    public void AddContos(@RequestBody ClientModel Cliente) {
+      var client = repository.findById(Cliente.id).get();
+      var contos = client.contos + Cliente.contos;
+      client.contos = contos;
+      repository.deleteById(client.id);
+      repository.save(client);
+    }
 
+    @PostMapping(path = "/client/menosContos")
+    public void menosContos(@RequestBody ClientModel Cliente) {
+      var client = repository.findById(Cliente.id).get();
+      var contos = client.contos - Cliente.contos;
+      client.contos = contos;
+      repository.deleteById(client.id);
+      repository.save(client);
+    }
 }

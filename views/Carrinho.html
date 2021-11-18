@@ -42,7 +42,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a onclick="goCadastro()""><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a onclick="goCadastro()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="./Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <li><a onclick="goCarrinho()"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
             </ul>
@@ -51,11 +51,12 @@
 
     <div class="container mt-3">
         <h4 class="mt-5" style="margin-top: 50px;">Carrinho:</h4>
+        <input id="atdContos" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
         <br><br><br>
         <div id="livro1" >
             <div class="row" style="display:block">
                 <div style="display:block">
-                    <img class="card-img-top" src=""  id="foto1">
+                    <img class="card-img-top" id="foto1">
                 </div>
                 <div class="card-body" style="display:block">
                     <input id="titulo1" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
@@ -69,7 +70,7 @@
         <div id="livro2" >
             <div class="row" style="display:block">
                 <div style="display:block">
-                    <img class="card-img-top" src=""  id="foto2">
+                    <img class="card-img-top" id="foto2">
                 </div>
                 <div class="card-body" style="display:block">
                     <input id="titulo2" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
@@ -83,7 +84,7 @@
         <div id="livro3" >
             <div class="row" style="display:block">
                 <div style="display:block">
-                    <img class="card-img-top" src=""   id="foto3">
+                    <img class="card-img-top" d="foto3">
                 </div>
                 <div class="card-body" style="display:block">
                     <input id="titulo3" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
@@ -108,8 +109,9 @@
             </div>
         </div>
         <br><br><br><br>
-        <p class="card-text">Você vai gastar 50 contos nessa compra</p>
-        <button class="btn">Finalizar compra</button>
+        <input value="Contos totais : "readonly  style="text-align: center;font-size: medium;border: 0px;">
+        <input id="precototal" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
+        <button class="btn" onclick="FechaVenda()">Finalizar compra</button>
     </div>
     <footer class="footer">
         <div>

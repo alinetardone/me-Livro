@@ -38,15 +38,14 @@
                     </ul>
                 </li>
                 <li class="active"><a href="./Trocar.html">Trocar</a></li>
-                <li><a href="./Layout.html">Comprar</a></li>
-                <li><a>Vender</a></li>
+                <li><a onclick="goComprar()">Comprar</a></li>
+                <li><a onclick="goVender()">Vender</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="./Cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a onclick="goCadastro()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="./Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li><a href="./Carrinho.html"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a>
-                </li>
+                <li><a onclick="goCarrinho()"><img src="../img/carrinho.jpeg" style="width: 30px;height: 30px;"> </a></li>
             </ul>
         </div>
     </nav>
@@ -68,20 +67,14 @@
                 <br>
                 <br>
                 <button class="btn btn-vender" style="margin-bottom: 20px;" id="vender" onclick="cadastroLivro()">Vender</button>
-            </div>
-
-            <div class="col">
                 <div>
                     <br>
                     <h4 class="input-livro">Fotos do livro: </h4>
                     <input class="input input-livro" name="FotoTxt" id="Imagem" type="file" onchange="exibirImagem()"> 
-                    <img id="imgPreview" src="data:image/jpeg;base64," class="img-responsive"
+                    <img id="imgPreview" class="img-responsive"
                     width="200">
                      <span asp-validation-for="Imagem" class="text-danger"></span>
                     <br>
-                    <input class="input input-livro" name="FotoTxt" id="FotoTxt" type="file">
-                    <br>
-                    <input class="input input-livro" name="FotoTxt" id="FotoTxt" type="file">
                     <br>
                 </div>
             </div>
