@@ -56,4 +56,14 @@ public class Carrinho {
       return repository.save(Carrinho);
     }
 
+    @DeleteMapping(path = "/carrinho/remove/{id}")
+    public void removeCarrinho(@PathVariable("id") Integer id) {
+      repository.deleteById(id);
+    }
+
+    @PostMapping(path = "/carrinho/getCarrinho")
+    public Object getCarrinhoPeloProduto(@RequestBody CarrinhoModel Carrinho) {
+      return repository.pegaCarrinho(Carrinho.id_Cliente, Carrinho.id_Livro);
+    }
+
 }

@@ -31,10 +31,10 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Todos<span
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Terror</a></li>
-                        <li><a href="#">Aventura</a></li>
-                        <li><a href="#">Ficção</a></li>
-                        <li><a href="#">Auto ajuda</a></li>
+                        <li><a href="#" onclick="listTerror()">Terror</a></li>
+                        <li><a href="#" onclick="listAventura()">Aventura</a></li>
+                        <li><a href="#" onclick="listFiccao()">Ficção</a></li>
+                        <li><a href="#" onclick="listTerror()">Auto ajuda</a></li>
                     </ul>
                 </li>
                 <li class="active"><a href="./Trocar.html">Trocar</a></li>
@@ -50,7 +50,7 @@
         </div>
     </nav>
 
-    <div class="roll">
+    <div class="roll" style="margin-left: 100px;">
             <div class="col">
                 <br>
                 <h4>Nome do livro</h4> <input class="input" name="NomeLivroTxt" id="NomeLivroTxt">
@@ -66,7 +66,6 @@
                 <h4>Preço (Contos)</h4> <input class="input" name="PrecoTxt" id="PrecoTxt">
                 <br>
                 <br>
-                <button class="btn btn-vender" style="margin-bottom: 20px;" id="vender" onclick="cadastroLivro()">Vender</button>
                 <div>
                     <br>
                     <h4 class="input-livro">Fotos do livro: </h4>
@@ -76,6 +75,7 @@
                      <span asp-validation-for="Imagem" class="text-danger"></span>
                     <br>
                     <br>
+                    <button class="btn btn-vender" style="margin-bottom: 20px;" id="vender" onclick="cadastroLivro()">Vender</button>
                 </div>
             </div>
             <br>

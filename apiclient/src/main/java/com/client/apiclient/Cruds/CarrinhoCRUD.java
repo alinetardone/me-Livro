@@ -11,4 +11,7 @@ public interface CarrinhoCRUD extends CrudRepository<CarrinhoModel,Integer>{
 
     @Query("from Carrinho where id_Cliente =:id and concluida = 0")
     public Object[] closeVenda(Integer id);
+
+    @Query("from Carrinho where id_Cliente =:id_Cliente and id_Livro=:id_Livro and concluida = 0")
+    public Object pegaCarrinho(Integer id_Cliente, Integer id_Livro);
 }

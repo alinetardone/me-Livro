@@ -170,6 +170,7 @@ function fazCadastro(userName, senha) {
   ).then(
     html => console.log(html)
   );
+  alert("Usuario cadastrado com sucesso");
 }
 
 function btnCompra6(){
@@ -201,6 +202,86 @@ function btnCompra1(){
   id_cliente = parseInt(queryString("client"));
   console.log(id_cliente);
   colocaCarrinho(id_cliente,1)
+}
+
+function tirarCarrinho1(){
+  id_cliente = parseInt(queryString("client"));
+  console.log(id_cliente);
+  //colocaCarrinho(id_cliente,1)
+}
+function tirarCarrinho1(){
+  id_cliente = parseInt(queryString("client"));
+  console.log(id_cliente);
+  //colocaCarrinho(id_cliente,1)
+}
+function tirarCarrinho1(){
+  id_cliente = parseInt(queryString("client"));
+  console.log(id_cliente);
+  //colocaCarrinho(id_cliente,1)
+}
+function tirarCarrinho1(){
+  id_cliente = parseInt(queryString("client"));
+  console.log(id_cliente);
+  //colocaCarrinho(id_cliente,1)
+}
+
+function listTerror(){
+  listFilter("Terror")
+}
+function listAventura(){
+  listFilter("Aventura")
+}
+function listFiccao(){
+  listFilter("Ficção")
+}
+function listAjuda(){
+  listFilter("Auto ajuda")
+}
+
+function listFilter(categoria){
+  limpaTela();
+  console.log("list iniciado...");
+  const ul = document.getElementById('livros');
+
+  fetch("http://localhost:8083/livro/list", {
+    method: "GET",
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  }).then(
+    response => response.json()
+
+  ).then(function (data) {
+
+    let livros = data;
+    console.log(livros);
+    var number = 1;
+    livros.forEach(data => {
+    if(data[0].genero == categoria)
+    {
+      document.getElementById("titulo" + number).value = data[0].titulo;
+      document.getElementById("preco" + number).value = data[0].preco + " Contos";
+      document.getElementById("livro" + number).hidden = false;
+      document.getElementById("foto" + number).src = "data:image/jpeg;base64," +  btoa(String.fromCharCode.apply(null, new Uint8Array(data[1].imagem)));
+      number++;
+      }
+    });
+  })
+    .catch(function (error) {
+
+      console.log(error);
+    });
+}
+
+function limpaTela(){
+  for(var number = 1; number <5 ; number++){
+    document.getElementById("titulo" + number).value = "";
+    document.getElementById("preco" + number).value = "";
+    document.getElementById("livro" + number).hidden = true;
+    document.getElementById("foto" + number).src = "";
+  }
 }
 
 function colocaCarrinho(id_client,id_produto)
@@ -328,6 +409,7 @@ function append(parent, el) {
 }
 
 function listaLivros() {
+  limpaTela();
   console.log("list iniciado...");
   const ul = document.getElementById('livros');
 
@@ -348,7 +430,8 @@ function listaLivros() {
     var number = 1;
     livros.forEach(data => {
       document.getElementById("titulo" + number).value = data[0].titulo;
-      document.getElementById("preco" + number).value = data[0].preco + " Contos";;
+      document.getElementById("preco" + number).value = data[0].preco + " Contos";
+      document.getElementById("livro" + number).hidden = false;
       document.getElementById("foto" + number).src = "data:image/jpeg;base64," +  btoa(String.fromCharCode.apply(null, new Uint8Array(data[1].imagem)));
       number++;
     });
@@ -401,6 +484,7 @@ function listaLivrosCarrinho() {
     livros.forEach(data => {
       document.getElementById("titulo" + number).value = data[1].titulo;
       document.getElementById("preco" + number).value =  data[1].preco + " Contos";
+      document.getElementById("livro" + number).hidden = false;
       document.getElementById("foto" + number).src = "data:image/jpeg;base64," + btoa(String.fromCharCode.apply(null, new Uint8Array(data[2].imagem)));;
       number++;
       precototal+=data[1].preco;
@@ -482,6 +566,7 @@ async function cadastroLivro(nomeLivro, generoLivro, precoLivro) {
     console.log(data);
     id_Livro = data.id;
   })
+  alert("Livro cadastrado com sucesso!")
 }
 
 async function cadastroFotoLivro(url, imagem, id_Livro) {

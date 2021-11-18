@@ -30,10 +30,10 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Todos<span
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Terror</a></li>
-                        <li><a href="#">Aventura</a></li>
-                        <li><a href="#">Ficção</a></li>
-                        <li><a href="#">Auto ajuda</a></li>
+                        <li><a href="#" onclick="listTerror()">Terror</a></li>
+                        <li><a href="#" onclick="listAventura()">Aventura</a></li>
+                        <li><a href="#" onclick="listFiccao()">Ficção</a></li>
+                        <li><a href="#" onclick="listAjuda()">Auto ajuda</a></li>
                     </ul>
                 </li>
                 <li class="active"><a href="./Trocar.html">Trocar</a></li>
@@ -51,9 +51,10 @@
 
     <div class="container mt-3">
         <h4 class="mt-5" style="margin-top: 50px;">Carrinho:</h4>
+        <br>
         <input id="atdContos" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
         <br><br><br>
-        <div id="livro1" >
+        <div id="livro1" hidden>
             <div class="row" style="display:block">
                 <div style="display:block">
                     <img class="card-img-top" id="foto1">
@@ -62,12 +63,12 @@
                     <input id="titulo1" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <br>
                     <input id="preco1" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
-                    <button class="btnCarrinho">Tirar do carrinho</button>
+                    <button class="btnCarrinho" onclick="tirarCarrinho1()">Tirar do carrinho</button>
                 </div>
             </div>
         </div>
         <br><br>
-        <div id="livro2" >
+        <div id="livro2" hidden>
             <div class="row" style="display:block">
                 <div style="display:block">
                     <img class="card-img-top" id="foto2">
@@ -76,12 +77,12 @@
                     <input id="titulo2" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <br>
                     <input id="preco2" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
-                    <button class="btnCarrinho">Tirar do carrinho</button>
+                    <button class="btnCarrinho" onclick="tirarCarrinho2()">Tirar do carrinho</button>
                 </div>
             </div>
         </div>
         <br><br>
-        <div id="livro3" >
+        <div id="livro3" hidden>
             <div class="row" style="display:block">
                 <div style="display:block">
                     <img class="card-img-top" d="foto3">
@@ -90,12 +91,12 @@
                     <input id="titulo3" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <br>
                     <input id="preco3" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
-                    <button class="btnCarrinho">Tirar do carrinho</button>
+                    <button class="btnCarrinho" onclick="tirarCarrinho3()">Tirar do carrinho</button>
                 </div>
             </div>
         </div>
         <br><br>
-        <div id="livro4" >
+        <div id="livro4" hidden>
             <div class="row" style="display:block">
                 <div style="display:block">
                     <img class="card-img-top" src=""  id="foto4">
@@ -104,7 +105,7 @@
                     <input id="titulo4" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
                     <br>
                     <input id="preco4" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
-                    <button class="btnCarrinho">Tirar do carrinho</button>
+                    <button class="btnCarrinho" onclick="tirarCarrinho4()">Tirar do carrinho</button>
                 </div>
             </div>
         </div>

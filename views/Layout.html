@@ -31,10 +31,10 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Todos<span
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Terror</a></li>
-                        <li><a href="#">Aventura</a></li>
-                        <li><a href="#">Ficção</a></li>
-                        <li><a href="#">Auto ajuda</a></li>
+                        <li><a href="#" onclick="listTerror()">Terror</a></li>
+                        <li><a href="#" onclick="listAventura()">Aventura</a></li>
+                        <li><a href="#" onclick="listFiccao()">Ficção</a></li>
+                        <li><a href="#" onclick="listTerror()">Auto ajuda</a></li>
                     </ul>
                 </li>
                 <li class="active"><a href="./Trocar.html">Trocar</a></li>
@@ -54,7 +54,7 @@
         <h4 class="mt-5" style="margin-top: 50px;">Mais acessados</h4>
         <hr>
         <div class="row">
-            <div class="col-sm-4" id="livro1">
+            <div class="col-sm-4" id="livro1" hidden>
                 <div class="card text-center">
                     <img class="card text-center"  id="foto1">
                     <input id="titulo1" value=""readonly style="text-align: center;font-size: medium;border: 0px;">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4"  id="livro2">
+            <div class="col-sm-4"  id="livro2"hidden>
                 <div class="card text-center">
                     <img class="card text-center"  id="foto2">
                     <input id="titulo2" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4"  id="livro3">
+            <div class="col-sm-4"  id="livro3" hidden>
                 <div class="card text-center">
                     <img class="card text-center"  id="foto3">
                     <input id="titulo3" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
@@ -88,7 +88,7 @@
         </div>   
         <hr>
         <div class="row">
-            <div class="col-sm-4" id="livro4">
+            <div class="col-sm-4" id="livro4" hidden>
                 <div class="card text-center">
                     <img class="card text-center"   id="foto4">
                     <input id="titulo4" value=""readonly style="text-align: center;font-size: medium;border: 0px;">
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4"  id="livro5">
+            <div class="col-sm-4"  id="livro5" hidden>
                 <div class="card text-center">
                     <img class="card text-center"  id="foto5">
                     <input id="titulo5" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4"  id="livro6">
+            <div class="col-sm-4"  id="livro6" hidden>
                 <div class="card text-center">
                     <img class="card text-center"  id="foto6"> 
                     <input id="titulo6" value=""readonly  style="text-align: center;font-size: medium;border: 0px;">
